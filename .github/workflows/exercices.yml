@@ -1,0 +1,21 @@
+name: My-CI-Exercice
+
+on:
+  push:
+    branches: [ my-exercices ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+  steps:
+    - name: Utilisation node 8
+      uses: docker://node:8-alpine
+
+    - name: Install, Test, Build
+      run: |
+        npm install
+        npm test
+        npm run build
