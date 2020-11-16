@@ -7,14 +7,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x]
+
     steps:
-      - uses: actions/checkout@v1
-
-    - name: Environnement
-      uses: docker://node:8-alpine
-
-    - name: Install, Test, Build
-      run: |
-        npm install
-        npm test
-        npm run build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm test
+      - run: npm run build
