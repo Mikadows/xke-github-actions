@@ -10,8 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-  steps:
-    - name: Env
+    - name: Environnement
       uses: docker://node:8-alpine
 
     - name: Install, Test, Build
