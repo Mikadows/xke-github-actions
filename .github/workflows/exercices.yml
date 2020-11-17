@@ -12,12 +12,22 @@ jobs:
       matrix:
         node-version: [8.x]
 
+    env:
+      BRANCH: ${{ BRANCH#/ref/head/ }}
+      COMMIT: ${{ GITHUB_SHA::8 }}
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm test
-      - run: npm run build
+      # Exo 1
+#      - uses: actions/checkout@v2
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#      - run: npm install
+#      - run: npm test
+#      - run: npm run build
+
+      # Exo 2
+      - name: Build Dockerfile
+        run: |
+          docker build -t xbexke/camel:$BRANCH-$COMMIT -f Dockerfile .
