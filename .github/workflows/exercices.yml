@@ -24,8 +24,8 @@ jobs:
 #      - run: npm run build
 
       # Exo 2
-      - name: Build Dockerfile
       - uses: nelonoel/branch-name@v1
+      - name: Build Dockerfile
         env:
           DOCKER_NAMESPACE: 'xebxke'
           DOCKER_IMAGE: 'camel'
