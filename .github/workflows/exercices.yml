@@ -54,7 +54,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: docker.io/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-COMMIT_SHA
+          tags: docker.io/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA
 
       # Exo 2 - WIP failed
 #      - name: Build Dockerfile
