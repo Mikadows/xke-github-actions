@@ -15,7 +15,7 @@ jobs:
     env:
       BRANCH: ${{ github.head_ref }}
 #      BRANCH: ${{ BRANCH#/ref/head/ }}
-      COMMIT: ${{ GITHUB_SHA::8 }}
+#      COMMIT: ${{ GITHUB_SHA::8 }}
 
     steps:
       # Exo 1
@@ -31,4 +31,6 @@ jobs:
       # Exo 2
       - name: Build Dockerfile
         run: |
-          docker build -t xbexke/camel:$BRANCH-$COMMIT -f Dockerfile .
+          echo ${BRANCH_NAME}
+          echo ${GITHUB_SHA}
+#          docker build -t xbexke/camel:$BRANCH-$COMMIT -f Dockerfile .
