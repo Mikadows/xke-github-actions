@@ -35,7 +35,7 @@ jobs:
           echo ${DOCKER_IMAGE}
           echo ${GITHUB_SHA}
           echo ${BRANCH}
-          docker build -t $DOCKER_REGISTRY/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA .
+          docker build -t $DOCKER_REGISTRY/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA ../../.
 
 #          docker build -t docker.io/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-COMMIT_SHA -f Dockerfile .
 #          COMMIT_SHA: $GITHUB_SHA
