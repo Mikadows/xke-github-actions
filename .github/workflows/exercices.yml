@@ -33,6 +33,6 @@ jobs:
         run: |
           echo ${DOCKER_NAMESPACE}
           echo ${DOCKER_IMAGE}
-          echo ${BRANCH}
+          echo ${BRANCH#/ref/head/}
           echo ${GITHUB_SHA}
 #          docker build -t xbexke/camel:$BRANCH-$COMMIT -f Dockerfile .
