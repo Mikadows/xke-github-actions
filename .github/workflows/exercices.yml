@@ -24,16 +24,15 @@ jobs:
 #      - run: npm run build
 
       # Exo 2
-      - uses: nelonoel/branch-name@v1
       - name: Build Dockerfile
         env:
           DOCKER_NAMESPACE: 'xebxke'
           DOCKER_IMAGE: 'camel'
-#          BRANCH: ${{ github.ref }}
+          BRANCH: ${{ github.ref }}
           COMMIT_SHA: $GITHUB_SHA
         run: |
           echo ${DOCKER_NAMESPACE}
           echo ${DOCKER_IMAGE}
-          echo ${BRANCH_NAME}
           echo ${GITHUB_SHA}
+          echo ${BRANCH}
 #          docker build -t xbexke/camel:$BRANCH-$COMMIT -f Dockerfile .
