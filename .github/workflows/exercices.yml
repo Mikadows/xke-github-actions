@@ -35,4 +35,4 @@ jobs:
           echo ${DOCKER_IMAGE}
           echo ${GITHUB_SHA}
           echo ${BRANCH}
-          docker build -t docker.io/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$COMMIT -f .
+          docker build -t docker.io/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-COMMIT_SHA -f .
