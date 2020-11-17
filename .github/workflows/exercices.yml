@@ -53,7 +53,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
-          push: false
+          push: true
           tags: mikadows/devops:latest
 
       # Exo 2 - WIP failed
