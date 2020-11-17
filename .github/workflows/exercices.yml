@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x]
+        node-version: [8.x, 10.x, 12.x]
 
     steps:
       # Exo 1
@@ -52,15 +52,15 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: mikadows/devops:latest-${{ matrix.node-version }}
+          tags: mikadows/devops:latest-node-${{ matrix.node-version }}
       -
         name: Build Dockerfile vanilla
-        run: docker build -t mikadows/devops_vanilla:latest-${{ matrix.node-version }} .
+        run: docker build -t mikadows/devops_vanilla:latest-node-${{ matrix.node-version }} .
       -
         name: Docker push vanilla
         run: |
           echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker push mikadows/devops_vanilla:latest
+          docker push mikadows/devops_vanilla:latest-node-${{ matrix.node-version }}
 
       # Exo 2 - WIP failed
 #      - name: Build Dockerfile
