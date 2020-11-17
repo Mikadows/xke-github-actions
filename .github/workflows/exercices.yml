@@ -44,8 +44,8 @@ jobs:
       -
         name: Build and push
         env:
-          DOCKER_REGISTRY: 'docker.io'
-          DOCKER_NAMESPACE: 'xebxke'
+#          DOCKER_REGISTRY: 'docker.io'
+          DOCKER_NAMESPACE: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_IMAGE: 'camel'
           BRANCH: ${{ github.ref }}
         uses: docker/build-push-action@v2
@@ -53,8 +53,8 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
-          push: true
-          tags: docker.io/${DOCKER_NAMESPACE}/${DOCKER_IMAGE}:${BRANCH#refs/heads/}-${GITHUB_SHA}
+          push: false
+          tags: ${DOCKER_NAMESPACE}/${DOCKER_IMAGE}:${BRANCH#refs/heads/}-${GITHUB_SHA}
 
       # Exo 2 - WIP failed
 #      - name: Build Dockerfile
