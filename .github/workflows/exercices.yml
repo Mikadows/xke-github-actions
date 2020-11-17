@@ -28,7 +28,7 @@ jobs:
         env:
           DOCKER_NAMESPACE: 'xebxke'
           DOCKER_IMAGE: 'camel'
-          BRANCH: ${{ github.head_ref }}
+          BRANCH: ${{ github.ref }}
           COMMIT_SHA: $GITHUB_SHA
         run: |
           echo ${DOCKER_NAMESPACE}
