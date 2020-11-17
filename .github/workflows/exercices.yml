@@ -12,11 +12,6 @@ jobs:
       matrix:
         node-version: [8.x]
 
-    env:
-      BRANCH: ${{ github.head_ref }}
-#      BRANCH: ${{ BRANCH#/ref/head/ }}
-#      COMMIT: ${{ GITHUB_SHA::8 }}
-
     steps:
       # Exo 1
 #      - uses: actions/checkout@v2
@@ -30,7 +25,14 @@ jobs:
 
       # Exo 2
       - name: Build Dockerfile
+        env:
+          DOCKER_NAMESPACE: 'xebxke'
+          DOCKER_IMAGE: 'camel'
+          BRANCH: ${{ github.head_ref }}
+          COMMIT_SHA: $GITHUB_SHA
         run: |
-          echo ${BRANCH_NAME}
+          echo ${DOCKER_NAMESPACE}
+          echo ${DOCKER_IMAGE}
+          echo ${BRANCH}
           echo ${GITHUB_SHA}
 #          docker build -t xbexke/camel:$BRANCH-$COMMIT -f Dockerfile .
