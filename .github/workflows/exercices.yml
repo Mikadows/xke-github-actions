@@ -14,28 +14,28 @@ jobs:
 
     steps:
       # Exo 1
-#      - uses: actions/checkout@v2
-#      - name: Use Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#      - run: npm install
-#      - run: npm test
-#      - run: npm run build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm test
+      - run: npm run build
 
       # Exo 2
-      - name: Build Dockerfile
-        env:
-          DOCKER_REGISTRY: 'docker.io'
-          DOCKER_NAMESPACE: 'xebxke'
-          DOCKER_IMAGE: 'camel'
-          BRANCH: ${{ github.ref }}
-        run: |
-          echo ${DOCKER_NAMESPACE}
-          echo ${DOCKER_IMAGE}
-          echo ${GITHUB_SHA}
-          echo ${BRANCH}
-          docker build -t $DOCKER_REGISTRY/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA ../../.
+#      - name: Build Dockerfile
+#        env:
+#          DOCKER_REGISTRY: 'docker.io'
+#          DOCKER_NAMESPACE: 'xebxke'
+#          DOCKER_IMAGE: 'camel'
+#          BRANCH: ${{ github.ref }}
+#        run: |
+#          echo ${DOCKER_NAMESPACE}
+#          echo ${DOCKER_IMAGE}
+#          echo ${GITHUB_SHA}
+#          echo ${BRANCH}
+#          docker build -t $DOCKER_REGISTRY/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA ../../.
 
 #          docker build -t docker.io/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-COMMIT_SHA -f Dockerfile .
 #          COMMIT_SHA: $GITHUB_SHA
