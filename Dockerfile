@@ -1,4 +1,4 @@
-FROM nginx:<CHOOSE_VERSION>
+FROM nginx:alpine
 
 COPY ./dist/ /usr/share/nginx/html/
 
