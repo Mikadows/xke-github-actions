@@ -52,10 +52,10 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: mikadows/devops:latest
+          tags: mikadows/devops:latest-${{ matrix.node-version }}
       -
         name: Build Dockerfile vanilla
-        run: docker build -t mikadows/devops_vanilla:latest .
+        run: docker build -t mikadows/devops_vanilla:latest-${{ matrix.node-version }} .
       -
         name: Docker push vanilla
         run: |
