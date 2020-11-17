@@ -13,7 +13,8 @@ jobs:
         node-version: [8.x]
 
     env:
-      BRANCH: ${{ BRANCH#/ref/head/ }}
+      BRANCH: ${{ github.head_ref }}
+#      BRANCH: ${{ BRANCH#/ref/head/ }}
       COMMIT: ${{ GITHUB_SHA::8 }}
 
     steps:
